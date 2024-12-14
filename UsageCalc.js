@@ -22,7 +22,7 @@ calcEl.addEventListener('click', (e) => {
 
     for (i = 0; i < numberOfNights; i++) {
 
-        guestsContainerDiv.appendChild(addNight(numberOfPeople));
+        guestsContainerDiv.appendChild(addNight(i+1, numberOfPeople));
 
     }
 
@@ -41,10 +41,9 @@ calcEl.addEventListener('click', (e) => {
 
     addNightButton.addEventListener('click', () => {
         numberOfPeople = peopleEl.value;
-        guestsContainerDiv.insertBefore(addNight(numberOfPeople), addNightRow);
         numberOfNights++;
         nightsEl.value = numberOfNights;
-
+        guestsContainerDiv.insertBefore(addNight(numberOfNights, numberOfPeople), addNightRow);
     });
 
     console.log(`${numberOfPeople} people for ${numberOfNights} nights.`)
@@ -52,12 +51,19 @@ calcEl.addEventListener('click', (e) => {
 });
 
 
-const addNight = function(people) {
+const addNight = function(night, people) {
 
     const nightDiv = document.createElement('div');
     nightDiv.classList.add('row');
     nightDiv.classList.add('justify-content-left');
     nightDiv.classList.add('my-custom-row');
+
+    const nightCount = document.createElement('div');
+    const nightH3 = document.createElement('h4');
+    nightH3.innerText = `Night ${night}`
+    nightCount.appendChild(nightH3);
+    nightDiv.appendChild(nightCount);
+    nightCount.classList.add('col-sm-1', 'p3', 'border', 'bg-light', 'display:table');
 
     const partnerDiv = document.createElement('div');
     partnerDiv.classList.add('col-sm-1', 'p3', 'border', 'bg-light', 'display:table');
