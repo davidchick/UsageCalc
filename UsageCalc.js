@@ -1,5 +1,6 @@
 const peopleEl = document.getElementById('people');
 const nightsEl = document.getElementById('nights');
+const resetEl = document.getElementById('reset');
 const calcEl = document.getElementById('calculate');
 const guestsContainerDiv = document.getElementById('guests'); 
 
@@ -10,6 +11,11 @@ const GUEST_RATE = 10;
 
 let numberOfPeople = 0;
 let numberOfNights = 0;
+
+resetEl.addEventListener('click', () => {
+    window.location.reload();
+
+});
 
 calcEl.addEventListener('click', (e) => {
 
@@ -29,7 +35,7 @@ calcEl.addEventListener('click', (e) => {
     const addNightRow = document.createElement('div');
     addNightRow.classList.add('row','justify-content-left','my-custom-row');
     const addNightDiv = document.createElement('div');
-    addNightDiv.classList.add('col-sm-1', 'p3', 'border', 'bg-light');
+    addNightDiv.classList.add('col-sm-1', 'p3');
     addNightRow.appendChild(addNightDiv);
     const addNightButton = document.createElement('input');
     addNightButton.type = 'button';
@@ -63,7 +69,7 @@ const addNight = function(night, people) {
     nightH3.innerText = `Night ${night}`
     nightCount.appendChild(nightH3);
     nightDiv.appendChild(nightCount);
-    nightCount.classList.add('col-sm-1', 'p3', 'border', 'bg-light', 'display:table');
+    nightCount.classList.add('col-sm-1', 'p3', 'display:table');
 
     const partnerDiv = document.createElement('div');
     partnerDiv.classList.add('col-sm-1', 'p3', 'border', 'bg-light', 'display:table');
@@ -85,7 +91,7 @@ const addNight = function(night, people) {
     }
 
     const buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('col-sm-1', 'p3', 'border', 'bg-light');
+    buttonDiv.classList.add('col-sm-1', 'p3');
     const buttonEl = document.createElement('input');
     buttonEl.type = 'button';
     buttonEl.classList.add('btn', 'btn-success');
@@ -141,7 +147,7 @@ const totalFee = {
         this.total -= fee;
     },
     render() {
-        document.getElementById('total-h1').innerText = `Total: \$${this.total}`;
+        document.getElementById('total-h1').innerText = `Total Due: \$${this.total}`;
     },
     reset() {
         this.total = 0;
