@@ -56,7 +56,7 @@ const addNight = function(night, people) {
     const nightDiv = document.createElement('div');
     nightDiv.classList.add('row');
     nightDiv.classList.add('justify-content-left');
-    nightDiv.classList.add('my-custom-row');
+    nightDiv.classList.add('my-custom-row', 'align-items-center');
 
     const nightCount = document.createElement('div');
     const nightH3 = document.createElement('h4');
@@ -70,7 +70,7 @@ const addNight = function(night, people) {
     const partnerImg = document.createElement('img');
     partnerImg.setAttribute('src', 'images/noun-sunglasses-4306090.png');
     partnerImg.setAttribute('width', '80');
-    const partner = document.createElement('p');
+    const partner = document.createElement('a');
     partner.innerText = `\$${PARTNER_RATE}`;
     totalFee.add(PARTNER_RATE);
     totalFee.render();
