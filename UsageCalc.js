@@ -2,6 +2,7 @@ const peopleEl = document.getElementById('people');
 const nightsEl = document.getElementById('nights');
 const resetEl = document.getElementById('reset');
 const calcEl = document.getElementById('calculate');
+const explainerEl = document.getElementById('explainer');
 const guestsContainerDiv = document.getElementById('guests'); 
 
 const PARTNER_RATE = 25;
@@ -12,6 +13,8 @@ const GUEST_RATE = 10;
 let numberOfPeople = 0;
 let numberOfNights = 0;
 
+explainerEl.classList.add('hidden');
+
 resetEl.addEventListener('click', () => {
     window.location.reload();
 
@@ -21,6 +24,8 @@ calcEl.addEventListener('click', (e) => {
 
     e.preventDefault();
     guestsContainerDiv.innerHTML = '';
+    explainerEl.classList.remove('hidden');
+
     totalFee.reset();
 
     numberOfPeople = peopleEl.value;
@@ -95,7 +100,7 @@ const addNight = function(night, people) {
     const buttonEl = document.createElement('input');
     buttonEl.type = 'button';
     buttonEl.classList.add('btn', 'btn-success');
-    buttonEl.value = '+ person';
+    buttonEl.value = '+ guest';
     buttonEl.id = 'add-person';
     buttonDiv.appendChild(buttonEl);
     nightDiv.appendChild(buttonDiv);
