@@ -25,7 +25,6 @@
                 name="People"
                 min="1"
                 max="30"
-                placeholder="1"
                 size="4"
             />
             <small class="error" aria-live="polite"></small>
@@ -41,9 +40,23 @@
                 name="Nights"
                 min="1"
                 max="30"
-                placeholder="1"
                 size="4"
             />
+            <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="col-sm-2">
+            <label for="day">Arrival Day</label>
+            <select class="form-control" name="Day" id="day">
+              <option selected="selected" disabled>Choose one</option>
+              <option value=0>Sunday</option>
+              <option value=1>Monday</option>
+              <option value=2>Tuesday</option>
+              <option value=3>Wednesday</option>
+              <option value=4>Thursday</option>
+              <option value=5>Friday</option>
+              <option value=6>Saturday</option>
+            </select>
             <small class="error" aria-live="polite"></small>
         </div>
 

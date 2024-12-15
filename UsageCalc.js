@@ -1,5 +1,6 @@
 const peopleEl = document.getElementById('people');
 const nightsEl = document.getElementById('nights');
+const startDayEl = document.getElementById('day');
 const resetEl = document.getElementById('reset');
 const calcEl = document.getElementById('calculate');
 const explainerEl = document.getElementById('explainer');
@@ -7,6 +8,9 @@ const guestsContainerDiv = document.getElementById('guests');
 
 const PARTNER_RATE = 25;
 const GUEST_RATE = 10;
+
+const daysOfTheWeek = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const startDay = startDayEl.value;
 
 //let total = 0;
 
@@ -64,6 +68,21 @@ calcEl.addEventListener('click', (e) => {
 
 const addNight = function(night, people) {
 
+    let dayNumber = Number.parseInt(startDayEl.value - 1) + night;
+
+    console.log(`day number before ternary: ${dayNumber}`);
+
+    //dayNumber--;
+
+    //console.log(`day number --: ${dayNumber}`);
+
+
+    dayNumber >= 7 ? dayNumber = (dayNumber % 7) : true;
+    
+
+    console.log(`day number: ${dayNumber}`);
+    
+
     const nightDiv = document.createElement('div');
     nightDiv.classList.add('row');
     nightDiv.classList.add('justify-content-left');
@@ -71,7 +90,7 @@ const addNight = function(night, people) {
 
     const nightCount = document.createElement('div');
     const nightH3 = document.createElement('h4');
-    nightH3.innerText = `Night ${night}`
+    nightH3.innerText = `${daysOfTheWeek[dayNumber]}`
     nightCount.appendChild(nightH3);
     nightDiv.appendChild(nightCount);
     nightCount.classList.add('col-sm-1', 'p3', 'display:table');
